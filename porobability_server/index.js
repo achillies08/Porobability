@@ -23,11 +23,6 @@ app.use(
   })
 );
 
-
-app.get("/", (req, res) => {
-  res.send("Porobability API working!!");
-});
-
 app.use(bodyParser.json());
 
 app.use("/model", express.static(__dirname + "/tfModel"));
