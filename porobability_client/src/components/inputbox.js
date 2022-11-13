@@ -44,7 +44,7 @@ const InputField = () => {
       };
       console.log(postData);
       axios
-        .post("https://porobabilityserver.herokuapp.com/", postData)
+        .post("https://porobability-server.herokuapp.com/", postData)
         .then(setshowLoader(true), setDisable(true), setShowCard(false))
         .then((res) => {
           setShowCard(true);
