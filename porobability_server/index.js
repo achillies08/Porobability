@@ -23,11 +23,6 @@ app.use(
   })
 );
 
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "https://stunning-cactus-d6179f.netlify.app/"); // update to match the domain you will make the request from
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
 
 app.get("/", (req, res) => {
   res.send("Porobability API working!!");
