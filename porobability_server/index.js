@@ -15,7 +15,10 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 
+app.options("*", cors());
+
 app.use(cors({ origin: true }));
+
 
 app.use(
   bodyParser.urlencoded({
