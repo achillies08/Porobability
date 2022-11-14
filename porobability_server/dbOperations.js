@@ -3,19 +3,16 @@ import { disconnectMongoDb } from "./mongoConnection.js";
 
 async function saveData(data) {
   const matchData = new MatchData({
-    title: data.metadata.matchId,
     matchSummary: data,
   });
   matchData.save((err, dat) => {
     if (err) {
       console.error(
-        "Error saving match summary for match ID: ",
-        data.metadata.matchId
+        "Error saving match summary ", err
       );
     } else {
       console.log(
-        "Data saved successfully for match ID: ",
-        data.metadata.matchId
+        "Data saved successfully ",
       );
     }
   });

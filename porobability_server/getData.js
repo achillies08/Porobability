@@ -1,4 +1,3 @@
-// Called by express app
 import spectate from "./apiModules/spectatorV4.js";
 import riotRequest from "./requestSetup.js";
 import summoner from "./apiModules/summonerV4.js";
@@ -7,7 +6,6 @@ import { createDataframe, flushDataframe } from "./dataFrame.js";
 import { handleErr } from ".//handleErrorCodes.js";
 import ddFunc from "./apiModules/dDragon.js";
 import predict from "./model.js";
-// import getLiveData from "./getLiveData.js";
 
 let summonerData = "";
 let spectatorData = "";
@@ -49,7 +47,5 @@ async function getData(summonerName, serverName) {
     return dataToSend;
   }
 }
-
-// getData("2025 enjoyer", "euw");
 
 export default getData;
