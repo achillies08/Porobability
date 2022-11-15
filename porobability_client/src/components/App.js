@@ -4,6 +4,9 @@ import { Pass, Fail } from "./cards";
 import renderContext from "./contexts/renderContext";
 import { useState } from "react";
 import Loader from "./loader";
+import backJinx from "./resources/backJinx.jpg";
+import backSenna from "./resources/backSenna.jpg";
+import { Card } from "@mui/material";
 
 function App() {
   const [participants, setParticipants] = useState([]);
@@ -29,24 +32,34 @@ function App() {
     err,
     setErr,
   };
+  const styles = {
+    appStyle: {
+      backgroundImage: `url(${showCard? backSenna:backJinx})`,
+      backgroundSize: "100%",
+      objectFit: "fill",
+      height:"100vh"
+    },
+  };
   return (
-    <div className="App">
-      <renderContext.Provider value={val}>
-        {showCard ? (
-          <>
+    <Card style={styles.appStyle}>
+      <>
+        <renderContext.Provider value={val}>
+          {showCard ? (
+            <>
+              <InputField />
+              {err ? <Fail /> : <Pass />}
+            </>
+          ) : showLoader ? (
+            <>
+              <InputField />
+              <Loader />
+            </>
+          ) : (
             <InputField />
-            {err ? <Fail /> : <Pass />}
-          </>
-        ) : showLoader ? (
-          <>
-            <InputField />
-            <Loader />
-          </>
-        ) : (
-          <InputField />
-        )}
-      </renderContext.Provider>
-    </div>
+          )}
+        </renderContext.Provider>
+      </>
+    </Card>
   );
 }
 

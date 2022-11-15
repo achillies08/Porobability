@@ -8,7 +8,8 @@ import { Divider } from "@mui/material";
 
 const createListItem = (participant) => {
   return (
-    <div>
+    <>
+      <Divider variant="middle" />
       <ListItem alignItems="flex-start">
         <ListItemAvatar>
           <Avatar alt="Summoner" src={participant.profileIconUrl} />
@@ -30,7 +31,7 @@ const createListItem = (participant) => {
         <Avatar alt="Champ" src={participant.championPic} />
       </ListItem>
       <Divider variant="middle" />
-    </div>
+    </>
   );
 };
 

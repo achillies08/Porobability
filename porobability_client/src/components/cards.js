@@ -7,6 +7,8 @@ import blue from "./resources/blue.png";
 import createListItem from "./listItem";
 import renderContext from "./contexts/renderContext";
 import errGif from "./resources/errGif.gif";
+import b from "./resources/b.jpg";
+import r from "./resources/r.jpg";
 
 // const Obj = {
 //   participants: [
@@ -108,22 +110,33 @@ let boxSx = {
   m: 8,
   p: 2,
 };
-let blueCardSx = {
-  width: "33%",
-  backgroundColor: "#5DA7DB",
-};
-let cardSx = {
-  height: "100%",
-  backgroundColor: "grey",
-};
-let redCardSx = {
-  width: "33%",
-  backgroundColor: "#FF5858",
-};
+
 let stackSx = {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+};
+
+const styles = {
+  blueCard: {
+    width:"33%",
+    backgroundImage: `url(${b})`,
+    backgroundSize: "100%",
+    objectFit: "fill",
+  },
+  redCard: {
+    width:"33%",
+    backgroundImage: `url(${r})`,
+    backgroundSize: "100%",
+    objectFit: "fill",
+  },
+  resultCard:{
+    backgroundColor:"transparent"
+  },
+
+  failCard: {
+    color: "white"
+  }
 };
 
 const Pass = () => {
@@ -131,10 +144,10 @@ const Pass = () => {
   return (
     <Box className="cardBox" sx={boxSx}>
       <Stack sx={stackSx} direction={"row"} spacing={2}>
-        <Card className="blueTeam" elevation={4} sx={blueCardSx}>
+        <Card className="blueTeam" elevation={4} style={styles.blueCard}>
           <List>{participants.slice(0, 5).map(createListItem)}</List>
         </Card>
-        <Card className="result" elevation={2} sx={cardSx} p={10}>
+        <Card className="result" elevation={0} style={styles.resultCard} p={10}>
           <div padding={10}>
             <img
               alt="Victory Pic"
@@ -147,7 +160,7 @@ const Pass = () => {
             />
           </div>
         </Card>
-        <Card className="redTeam" elevation={4} sx={redCardSx}>
+        <Card className="redTeam" elevation={4} style={styles.redCard}>
           <List>{participants.slice(5).map(createListItem)}</List>
         </Card>
       </Stack>
@@ -160,7 +173,7 @@ const Fail = () => {
   return (
     <Stack sx={stackSx} direction={"column"} spacing={2}>
       <img src={errGif} alt="Error gif" />
-      <Typography variant="h6">{errMsg}</Typography>
+      <Typography variant="h6" style={styles.failCard}>{errMsg}</Typography>
     </Stack>
   );
 };

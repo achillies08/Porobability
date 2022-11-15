@@ -82,7 +82,6 @@ const InputField = () => {
       <Box
         p={2}
         sx={{
-          marginTop: 4,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
