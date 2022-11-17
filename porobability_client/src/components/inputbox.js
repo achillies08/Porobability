@@ -43,9 +43,17 @@ const InputField = () => {
         serverName: server,
       };
       console.log(postData);
-      
-      axios
-        .post("https://porobabilityserver.herokuapp.com/", postData)
+
+      axios({
+        method: "post",
+        data: postData,
+        url: "https://porobabilityserver.herokuapp.com/",
+        mode: "no-cors",
+        headers: {
+          "Access-Control-Allow-Origin": "https://porobability.netlify.app/",
+          "Content-Type": "application/json",
+        }
+      })
         .then(setshowLoader(true), setDisable(true), setShowCard(false))
         .then((res) => {
           setShowCard(true);

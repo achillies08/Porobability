@@ -2,13 +2,13 @@ import axios from "axios";
 
 const cdn = "http://ddragon.leagueoflegends.com/cdn/";
 
-let champJson = await axios.get("https://ddragon.leagueoflegends.com/cdn/12.20.1/data/en_US/champion.json");
 
 champJson = champJson.data.data;
 
-let version = await axios.get("https://ddragon.leagueoflegends.com/api/versions.json")
-version = version.data[0];
+let version = await axios.get("https://ddragon.leagueoflegends.com/api/versions.json").then(version = version.data[0])
 
+
+let champJson = await axios.get("https://ddragon.leagueoflegends.com/cdn/"+version+"/data/en_US/champion.json");
 // console.log(version);
 
 async function ddFunc(obj){

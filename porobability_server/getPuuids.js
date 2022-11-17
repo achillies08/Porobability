@@ -15,9 +15,10 @@ async function puuidFunc(data, platformName, regionName) {
   // console.log(summList);
   for (let name in summList) {
     // call summoner-V4 for the names
-    
+    let d = [];
+    d.push(await summoner(summList[name], platformName));
     // get 10 puuids
-    puuidList.push((await summoner(summList[name], platformName)).puuid);
+    puuidList.push(d.puuid);
   }
   console.log(puuidList);
   await getAllMatchIds(regionName, puuidList);
@@ -50,7 +51,6 @@ function getUniqueMatchIds(matchIdList) {
 }
 
 async function getAllMatchSummaries(region, ids) {
-
   for (let id in ids) {
     let data = await getMatchSummary(region, ids[id]);
     await saveData(data);
