@@ -2,11 +2,11 @@ import axios from "axios";
 
 const cdn = "http://ddragon.leagueoflegends.com/cdn/";
 
-let version = await axios.get("https://ddragon.leagueoflegends.com/api/versions.json").then(version = version.data[0])
+let version = await axios.get("https://ddragon.leagueoflegends.com/api/versions.json")
+version = version.data[0]
 
-let champJson = await axios.get("https://ddragon.leagueoflegends.com/cdn/"+version+"/data/en_US/champion.json").then(champJson = champJson.data.data);
-
-// console.log(version);
+let champJson = await axios.get("https://ddragon.leagueoflegends.com/cdn/"+version+"/data/en_US/champion.json");
+champJson = champJson.data.data;
 
 async function ddFunc(obj){
     let participants = await createObj(obj,version,cdn,champJson);

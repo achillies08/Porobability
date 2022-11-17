@@ -18,7 +18,7 @@ async function puuidFunc(data, platformName, regionName) {
     let d = [];
     d.push(await summoner(summList[name], platformName));
     // get 10 puuids
-    puuidList.push(d.puuid);
+    puuidList.push(d[0].puuid);
   }
   console.log(puuidList);
   await getAllMatchIds(regionName, puuidList);
