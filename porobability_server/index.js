@@ -17,7 +17,7 @@ const app = express();
 
 app.options("*", cors());
 
-app.use(cors({ origin: "https://porobability.netlify.app/" }));
+app.use(cors({ origin: true }));
 
 app.use(
   bodyParser.urlencoded({

@@ -6,12 +6,12 @@ let stackSx = {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  backgroundColor: "transparent"
+  backgroundColor: "transparent",
 };
 
 const Loader = () => {
   return (
-    <Card sx={stackSx} direction={"column"} spacing={2}>
+    <Card sx={stackSx} elevation={0} direction={"column"} spacing={2}>
       <img
         alt="Loader"
         src={loaderGif}
@@ -20,7 +20,6 @@ const Loader = () => {
         errorIcon={true}
         bgColor="inherit"
       />
-   
     </Card>
   );
 };
